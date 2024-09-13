@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ghibli Animation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url("./images/background.png");
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: cover;
+        animation: move-background 7s forwards 7s infinite reverse;
+        
+      }
+      blurry-image{
+        filter: blur(2px);
+      }
+      @keyframes move-background {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 100% 100%;
+        }
+      }
+      #floating-image {
+        position: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+      img {
+        width: 400px;
+        height: auto;
+        position: center;
+        cursor: pointer;
+        animation: popover 2s ease-in-out infinite;
+      }
+      @keyframes popover {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      audio {
+        display: block;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 600px;
+      }
+      #message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: rgba(238, 140, 13, 0.329);
+        text-align: center;
+        display: none;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #d6d6d6;
+        text-shadow: 1px 1px 1px rgba(231, 152, 33, 0.945);
+        margin: 0;
+        cursor: pointer;
+        padding: 10px;
+      }
+      #next-page {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 24px;
+        padding: 10px 20px;
+        background-color: #0ca75e;
+        color: #333;
+        border: 2px solid #333;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <img class="popover" src="./images/background-image2.jpg" alt="popover image">
+      <audio src="./music/ghibli.mp3" autoplay loop></audio>
+    </div>
+    <div>
+      <img class="popover" src="./images/totoro2.jpeg" alt="popover image">
+    </div>
+    <div>
+      <img class="popover" src="./images/lofi.jpg" alt="popover image">
+
+    </div>
+    <button id="next-page" onclick="goToNextPage()">Next Theme</button>
+    <div id="message"></div>
+    <div>
+      <script>
+        const messages = [
+          "You found a hidden treasure!This is from Howl's moving castle by Ghibli Studio",
+          "The journey is more important than the destination.",
+          "Always be curious and keep exploring!",
+          "Nature is beautiful, take a moment to appreciate it.",
+          "Sometimes it's good to take a break and relax."
+        ];
+        
+        const image = document.querySelector("img");
+        const messageDiv = document.querySelector("#message");
+        
+        image.addEventListener("click", () => {
+          const randomIndex = Math.floor(Math.random() * messages.length);
+          messageDiv.textContent = messages[randomIndex];
+          messageDiv.style.display = "block";
+          
+          setTimeout(() => {
+            messageDiv.style.display = "none";
+          }, 3000);
+        });
+        function goToNextPage() {
+        window.location.href = "final3.html";
+      }
+      </script>
+    </div>
+
+  </body>
+</html>

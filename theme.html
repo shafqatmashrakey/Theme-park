@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shafqat's Themes</title>
+    <style>
+      body {
+        background-image: url('./images/mainback.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      
+      #container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 50px;
+      }
+      
+      .image {
+        width: 300px;
+        height: 200px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 5px solid black;
+        border-radius: 10px;
+        cursor: pointer;
+        
+      }
+      @keyframes popover {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      #image1 {
+        background-image: url('./images/background-image1.jpg');
+        animation:popover 2s ease-in-out infinite;
+      }
+      
+      #image2 {
+        background-image: url('./images/theboycover.jpg');
+        animation: popover 2s ease-in-out infinite;
+      }
+      
+      #image3 {
+        background-image: url('./images/ori2.jpg');
+        animation: popover 2s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+        <center><h1><u> WELCOME TO MY THEME PARK </u></h1></center>
+    </div>
+    <div id="container">
+      <a href="final.html">
+        <div id="image1" class="image"></div>
+      </a>
+      <a href="final2.html">
+        <div id="image2" class="image"></div>
+      </a>
+      <a href="final3.html">
+        <div id="image3" class="image"></div>
+      </a>
+    </div>
+    <div class="text-shadow">
+      <b><center><h1><u>Expectation</u></h1></center></b><br>
+      
+       <center><b> 1st theme is about "find the hidden texts" by Ghibli based theme webpage</b></center><br>
+        
+      
+      
+        <center><b> 2nd theme page is about a movie</b></center><br>
+      
+      
+        <center><b> 3rd theme page is about a game</b></center><br>
+      
+    </div>
+  </body>
+</html>

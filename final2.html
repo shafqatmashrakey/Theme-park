@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Boy</title>
+    <style>
+      /* Background */
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url('./images/theboysnow.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        animation: background-move 20s linear infinite;
+      }
+      
+      @keyframes background-move {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+      
+      /* Foreground */
+      #foreground {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 200px;
+        background-image: url('./images/theboy.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 5px solid rgb(241, 238, 238);
+        border-radius: 50%;
+        cursor: pointer;
+        animation: foreground-move 10s linear infinite;
+      }
+      
+      @keyframes foreground-move {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+      
+      /* Message */
+      #message {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        color: rgb(12, 12, 12);
+        text-shadow: 1px 1px rgb(255, 255, 255);
+        text-align: center;
+      }
+      audio {
+        display: block;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 600px;
+      }
+      #next-page {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 24px;
+        padding: 10px 20px;
+        background-color: #13d83e;
+        color: #333;
+        border: 2px solid #333;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="foreground" onclick="showMessage()"></div>
+    <div id="message"></div>
+    <button id="next-page" onclick="goToNextPage()">Next Theme</button>
+    <div>
+      <audio src="./music/theboy.mp3"autoplay loop></audio>
+    </div>
+    <script>
+      function showMessage() {
+         // List of possible messages
+         const messages = [
+              "The Boy, the Mole, the Fox and the Horse",
+              "This Movie has won the Oscars",
+              "Won Academy Award for Best Short Film",
+              "Won BAFTA Award for Best British Short Animation",
+              "Created by Charlie Mackesy, Peter Baynton",
+              "This was inspired by the book and this talks about mental health"
+            ];
+            
+            // Get a random index from 0 to 5 (inclusive)
+            const index = Math.floor(Math.random() * messages.length);
+            
+            // Show the message with the chosen text
+            const message = document.getElementById("message");
+            message.innerHTML = messages[index];
+            message.style.display = "block";
+      }
+      function goToNextPage() {
+        window.location.href = "final.html";
+      }
+    </script>
+  </body>
+</html>

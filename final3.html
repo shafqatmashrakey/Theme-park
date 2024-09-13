@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ori</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: cover;
+        background-image: url('./images/ori2.jpg');
+        animation: move-background 10s forwards 10s infinite reverse;
+      }
+      
+      #foreground-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 300px;
+        background-image: url('./images/ori1.jpg');
+        background-size: cover;
+        border: 5px solid black;
+        border-radius: 40%;
+        cursor: pointer;
+        animation: move-foreground 5s forwards 5s infinite reverse;
+      }
+
+      @keyframes move-background {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 100% 100%;
+        }
+      }
+      
+      @keyframes move-foreground {
+        from {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+      
+      #message {
+        display: none;
+        position: sticky;
+        font-size: 28px;
+        font-weight: bold;
+        font-style: oblique;
+        text-align: center;
+        margin-top: 10px;
+        color: bisque;
+      }
+      
+      button {
+        display: block;
+        margin: 50px auto;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #009688;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="foreground-image" onclick="showMessage()"></div>
+    
+    <div id="message"></div>
+    
+    <button onclick="goToNextPage()">Next Page</button>
+    <div>
+        <audio src="./music/ori.mp3"autoplay loop></audio>
+    </div>
+    
+    <script>
+      function showMessage() {
+        // List of possible messages
+        const messages = [
+          "Ori and the Blind Forest is a platform-adventure Metroidvania video game developed by Moon Studios",
+          "It's all aboutexploration, collecting items and upgrades, and backtracking to previously inaccessible areas.",
+          "Won The Game Award for Best Art Direction",
+          "BAFTA Games Award for Artistic Achievement",
+          "Best 2D game I have ever played. "
+        ];
+        
+        // Get a random index from 0 to 4 (inclusive)
+        const index = Math.floor(Math.random() * 5);
+        
+        // Show the message with the chosen text
+        const message = document.getElementById("message");
+        message.innerHTML = messages[index];
+        message.style.display = "block";
+      }
+      
+      function goToNextPage() {
+        window.location.href = "final2.html";
+      }
+    </script>
+  </body>
+</html>
